@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind link  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Baper Bank</title>
+</head>
+<body class="bg-stone-200">
+    <header class="container mx-auto px-4">
+        <h1 class="text-5xl text-center mt-16 bg-gradient-to-r from-cyan-500 to-blue-500 p-8 rounded-3xl">Welcome to my <span class="font-bold text-pink-700">Baper Bank</span> !!!</h1>
+    </header>
+    <!-- main start -->
+    <main>
+        <section class="w-3/4 bg-black text-center mx-auto my-8 rounded">
+            <h3 class="text-3xl py-3 font-bold text-pink-500">Login information</h3>
+            <div class="pb-5">
+                <input type="email" name="" id="user-email" placeholder="Enter Your Email" class="px-3 mx-auto w-2/4 border border-gray-700 rounded mb-4 block">
+                <input type="password" name="" id="user-password" placeholder="Enter Your Password" class="px-3 mx-auto w-2/4 border border-gray-700 rounded mb-4 block">
+                <button onclick="submit()" type="submit" class="w-2/4 bg-emerald-600 text-xl px-5 py-2 text-white font-medium rounded">Submit</button>
+            </div>
+        </section>
+    </main>
+    <script src="./js/login.js"></script>
+</body>
+</html>
