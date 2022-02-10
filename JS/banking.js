@@ -8,5 +8,10 @@ document.getElementById('deposite-button').addEventListener('click',function(){
     // get current deposite
     const depositCurrentTotal = document.getElementById('deposit-total');
     const depositCurrentText = depositCurrentTotal.innerText;
+
+    depositCurrentTotal.innerText = depositNewText;
     console.log(depositCurrentText);
+
+    // clear input field
+    depositNewInput.value = '';
 })
