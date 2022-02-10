@@ -17,11 +17,18 @@ function getUpdate(id,NewAmount){
 
     CurrentTotal.innerText = NewAmount + CurrentAmount;
 }
-
-function updateBalance(isAdd,NewAmount){
+function getCurrentBalnace(){
     const balanceTotal = document.getElementById('total-balance');
     const balanceText = balanceTotal.innerText;
     const balanceAmount = parseFloat(balanceText);
+    return balanceAmount;
+}
+
+function updateBalance(isAdd,NewAmount){
+    const balanceTotal = document.getElementById('total-balance');
+    /* const balanceText = balanceTotal.innerText;
+    const balanceAmount = parseFloat(balanceText); */
+    const balanceAmount = getCurrentBalnace();
 
     if(isAdd == true){
         balanceTotal.innerText = balanceAmount + NewAmount;
@@ -35,8 +42,13 @@ function updateBalance(isAdd,NewAmount){
 //Deposit
 document.getElementById('deposite-button').addEventListener('click',function(){
     const NewAmount = getInput('deposite-input')
-    getUpdate('deposit-total',NewAmount);
-    updateBalance(true,NewAmount);
+    if(NewAmount > 0){
+        getUpdate('deposit-total',NewAmount);
+        updateBalance(true,NewAmount);
+    }
+    else{
+        alert("Please Enter valid amount.")
+    }
 
     // get and update deposite total
     /* const CurrentTotal = document.getElementById('deposit-total');
@@ -56,8 +68,14 @@ document.getElementById('deposite-button').addEventListener('click',function(){
 // Withdraw event handler
 document.getElementById('withdraw-button').addEventListener('click',function(){
     const withdrawNewAmount = getInput('withdraw-input')
-    getUpdate('withdraw',withdrawNewAmount);
-    updateBalance(false,withdrawNewAmount);
+    const currentBalance = getCurrentBalnace();
+    if(withdrawNewAmount > 0 && withdrawNewAmount < currentBalance){
+        getUpdate('withdraw',withdrawNewAmount);
+        updateBalance(false,withdrawNewAmount);
+    }
+    else{
+        alert("Please withdraw valid amount of money !!")
+    }
     
     // get current withdraw
     /* const withdrawCurrentTotal = document.getElementById('withdraw');
