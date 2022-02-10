@@ -32,7 +32,12 @@ document.getElementById('withdraw-button').addEventListener('click',function(){
     const withdrawNewText = withdrawNewInput.value;
     const withdrawNewAmount = parseFloat(withdrawNewText)
 
-    console.log(withdrawNewAmount);
+    // get current withdraw
+    const withdrawCurrentTotal = document.getElementById('withdraw');
+    const withdrawCurrentText = withdrawCurrentTotal.innerText;
+    const withdrawCurrentAmount = parseFloat(withdrawCurrentText);
+
+    withdrawCurrentTotal.innerText = withdrawCurrentAmount + withdrawNewAmount;
 
 
     //clear input field of withdraw
