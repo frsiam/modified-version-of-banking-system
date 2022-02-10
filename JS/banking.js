@@ -1,37 +1,37 @@
-//Deposit
-
-document.getElementById('deposite-button').addEventListener('click',function(){
+// common function
+function getInput(id){
     // deposit new input
-    const depositNewInput = document.getElementById('deposite-input');
-    const depositNewText = depositNewInput.value;
-    const depositNewAmount = parseFloat(depositNewText)
+    const NewInput = document.getElementById(id);
+    const NewText = NewInput.value;
+    const NewAmount = parseFloat(NewText)
+    // clear input field
+    NewInput.value = '';
+    return NewAmount;
+}
 
+
+//Deposit
+document.getElementById('deposite-button').addEventListener('click',function(){
+    const NewAmount = getInput('deposite-input')
     // get current deposite
     const depositCurrentTotal = document.getElementById('deposit-total');
     const depositCurrentText = depositCurrentTotal.innerText;
     const depositCurrentAmount = parseFloat(depositCurrentText);
 
-    depositCurrentTotal.innerText = depositNewAmount + depositCurrentAmount;
-    console.log(depositCurrentText);
+    depositCurrentTotal.innerText = NewAmount + depositCurrentAmount;
 
     //update balance 
     const balanceTotal = document.getElementById('total-balance');
     const balanceText = balanceTotal.innerText;
     const balanceAmount = parseFloat(balanceText);
 
-    balanceTotal.innerText = balanceAmount + depositNewAmount;
-
-    // clear input field
-    depositNewInput.value = '';
+    balanceTotal.innerText = balanceAmount + NewAmount;
 })
 
 // Withdraw event handler
 document.getElementById('withdraw-button').addEventListener('click',function(){
-    // deposit new input
-    const withdrawNewInput = document.getElementById('withdraw-input');
-    const withdrawNewText = withdrawNewInput.value;
-    const withdrawNewAmount = parseFloat(withdrawNewText)
-
+    const withdrawNewAmount = getInput('withdraw-input')
+    
     // get current withdraw
     const withdrawCurrentTotal = document.getElementById('withdraw');
     const withdrawCurrentText = withdrawCurrentTotal.innerText;
@@ -39,7 +39,10 @@ document.getElementById('withdraw-button').addEventListener('click',function(){
 
     withdrawCurrentTotal.innerText = withdrawCurrentAmount + withdrawNewAmount;
 
+    //update balance 
+    const balanceTotal = document.getElementById('total-balance');
+    const balanceText = balanceTotal.innerText;
+    const balanceAmount = parseFloat(balanceText);
 
-    //clear input field of withdraw
-    withdrawNewInput.value = '';
+    balanceTotal.innerText = balanceAmount - withdrawNewAmount;
 })
