@@ -19,6 +19,22 @@ document.getElementById('deposite-button').addEventListener('click',function(){
     const balanceText = balanceTotal.innerText;
     const balanceAmount = parseFloat(balanceText);
 
+    balanceTotal.innerText = balanceAmount + depositNewAmount;
+
     // clear input field
     depositNewInput.value = '';
+})
+
+// Withdraw event handler
+document.getElementById('withdraw-button').addEventListener('click',function(){
+    // deposit new input
+    const withdrawNewInput = document.getElementById('withdraw-input');
+    const withdrawNewText = withdrawNewInput.value;
+    const withdrawNewAmount = parseFloat(withdrawNewText)
+
+    console.log(withdrawNewAmount);
+
+
+    //clear input field of withdraw
+    withdrawNewInput.value = '';
 })
